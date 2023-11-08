@@ -1,10 +1,14 @@
 import MoviesGrid from '@/app/components/movies-grid'
-import SideBar from '@/app/components/sidebar'
+import React, { Suspense } from 'react'
+
+// const MoviesGrid = React.lazy(() => import('./components/movies-grid'))
 export default function Home() {
   return (
-    <main className="max-w-5xl mx-auto flex ">
-      <SideBar />
-      <MoviesGrid />
+    <main className=' w-full'>
+      <Suspense fallback={<div>Loading...</div>}>
+        {/* @ts-expect-error Server Component */}
+        <MoviesGrid />
+      </Suspense>
     </main>
   )
 }
