@@ -1,9 +1,10 @@
-import Image from 'next/image'
-
+import MoviesGrid from '@/app/components/movies-grid'
+import SideBar from '@/app/components/sidebar'
 export default function Home() {
   return (
-    <main>
-      <h1>Hello World</h1>
+    <main className="max-w-5xl mx-auto flex ">
+      <SideBar />
+      <MoviesGrid />
     </main>
   )
 }
