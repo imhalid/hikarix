@@ -3,7 +3,7 @@ const TOKEN = {
   headers: {
     accept: 'application/json',
     Authorization: `Bearer ${process.env.NEXT_PUBLIC_TOKEN}`,
-    caches: 'no-cache',
+    caches: 'no-store',
   },
   // next: {
   //   revalidate: 60 * 60 * 24,

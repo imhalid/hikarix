@@ -1,3 +1,5 @@
+import { GET_GENRES } from "@/app/utils/api"
+import { MOVIE_GENRES_TYPE } from "@/app/utils/types"
 const data = [
   {
     id: 1,
@@ -51,15 +53,16 @@ const data = [
   },
 ]
 
-const SideBar = () => {
+const SideBar = async () => {
+  const { genres } = await GET_GENRES()
   return (
-    <aside className="h-full w-64 text-left bg-gray-100 sticky top-0 rounded-lg p-1 mr-3">
+    <aside className="w-64 text-left bg-gray-100 fixed top-0 left-2 rounded-lg p-1 mr-3">
       <div className="">
         <h1 className="text-2xl font-bold">Categories</h1>
         <div className="flex flex-col mt-3">
-          {data.map((item) => (
+          {genres.map((item: MOVIE_GENRES_TYPE) => (
             <div key={item.id} className="flex justify-between items-center py-2 px-2 hover:bg-gray-200 rounded-md">
-              <a href={`/category/${item.slug}`}>{item.name}</a>
+              <a href={`/category/${item.id}`}>{item.name}</a>
               <span className="text-xs text-gray-400">10</span>
             </div>
           ))}

@@ -52,3 +52,8 @@ export type MOVIE_TYPE = {
   vote_average: number;
   vote_count: number;
 }
+
+export type MOVIE_GENRES_TYPE = {
+  id: number;
+  name: string;
+}
