@@ -1,72 +1,18 @@
 import { GET_GENRES } from "@/app/utils/api"
 import { MOVIE_GENRES_TYPE } from "@/app/utils/types"
-const data = [
-  {
-    id: 1,
-    name: 'Category 1',
-    slug: 'category-1',
-  },
-  {
-    id: 2,
-    name: 'Category 2',
-    slug: 'category-2',
-  },
-  {
-    id: 3,
-    name: 'Category 3',
-    slug: 'category-3',
-  },
-  {
-    id: 4,
-    name: 'Category 4',
-    slug: 'category-4',
-  },
-  {
-    id: 5,
-    name: 'Category 5',
-    slug: 'category-5',
-  },
-  {
-    id: 6,
-    name: 'Category 6',
-    slug: 'category-6',
-  },
-  {
-    id: 7,
-    name: 'Category 7',
-    slug: 'category-7',
-  },
-  {
-    id: 8,
-    name: 'Category 8',
-    slug: 'category-8',
-  },
-  {
-    id: 9,
-    name: 'Category 9',
-    slug: 'category-9',
-  },
-  {
-    id: 10,
-    name: 'Category 10',
-    slug: 'category-10',
-  },
-]
+import Link from "next/link"
 
 const SideBar = async () => {
   const { genres } = await GET_GENRES()
   return (
-    <aside className="w-64 text-left bg-gray-100 fixed top-0 left-2 rounded-lg p-1 mr-3">
-      <div className="">
-        <h1 className="text-2xl font-bold">Categories</h1>
-        <div className="flex flex-col mt-3">
-          {genres.map((item: MOVIE_GENRES_TYPE) => (
-            <div key={item.id} className="flex justify-between items-center py-2 px-2 hover:bg-gray-200 rounded-md">
-              <a href={`/category/${item.id}`}>{item.name}</a>
-              <span className="text-xs text-gray-400">10</span>
-            </div>
-          ))}
-        </div>
+    <aside className="max-w-6xl text-left bg-gray-100 fixed z-10 bottom-0   h-fit rounded-lg p-1">
+      <h1 className="text-2xl font-bold">Categories</h1>
+      <div className="flex flex-wrap mt-3">
+        {genres.map((item: MOVIE_GENRES_TYPE) => (
+          <div key={item.id} className="flex justify-between items-center py-2 px-2 hover:bg-gray-200 rounded-md">
+            <Link href={`/category/${item.id}`}>{item.name}</Link>
+          </div>
+        ))}
       </div>
     </aside>
   )

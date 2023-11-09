@@ -5,8 +5,7 @@ import SideBar from './components/sidebar'
 // const MoviesGrid = React.lazy(() => import('./components/movies-grid'))
 export default function Home() {
   return (
-    <main className='w-full relative'>
-      <SideBar />
+    <main className='w-full'>
       <MoviesGrid />
     </main>
   )

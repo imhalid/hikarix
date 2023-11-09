@@ -57,3 +57,8 @@ export type MOVIE_GENRES_TYPE = {
   id: number;
   name: string;
 }
+export type CardProps = {
+  movie_id: string
+  title: string
+  poster_path: string
+}
