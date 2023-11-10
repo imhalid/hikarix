@@ -54,6 +54,7 @@ export type MOVIE_TYPE = {
 }
 
 export type MOVIE_GENRES_TYPE = {
+  map(arg0: (genre: any) => import("react").JSX.Element): import("react").ReactNode
   id: number;
   name: string;
 }

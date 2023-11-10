@@ -1,8 +1,8 @@
-import { GET_MOVIE } from '@/app/utils/api'
-import { MOVIES_TYPE } from '@/app/utils/types'
+import { GET_MOVIE } from '@/lib/api'
+import { MOVIES_TYPE } from '@/lib/types'
 import Image from 'next/image'
 import { getPlaiceholder } from "plaiceholder";
-import { blurImage } from '@/app/utils/blurImage'
+import { blurImage } from '@/lib/blurImage'
 
 export default async function Page({ params }: { params: { id: string } }) {
  const data = await GET_MOVIE(params.id)

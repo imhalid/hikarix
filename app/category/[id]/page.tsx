@@ -1,7 +1,7 @@
 
-import { GET_MOVIE_BY_GENRE } from '@/app/utils/api'
-import MovieCard from '@/app/components/ui/movie-card'
-import { MOVIES_TYPE } from '@/app/utils/types'
+import { GET_MOVIE_BY_GENRE } from '@/lib/api'
+import MovieCard from '@/components/ui/movie-card'
+import { MOVIES_TYPE } from '@/lib/types'
 
 export default async function Page({ params }: { params: { id: string } }) {
  const { results } = await GET_MOVIE_BY_GENRE(params.id)

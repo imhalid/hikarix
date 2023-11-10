@@ -1,8 +1,8 @@
 import Image from 'next/image'
 import Link from 'next/link'
-import { blurImage } from '@/app/utils/blurImage'
+import { blurImage } from '@/lib/blurImage'
 import { Suspense } from 'react'
-import { CardProps } from '@/app/utils/types'
+import { CardProps } from '@/lib/types'
 
 const MovieCard = async ({ title, poster_path, movie_id }: CardProps) => {
   const { color } = await blurImage(poster_path,)

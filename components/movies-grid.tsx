@@ -1,6 +1,6 @@
-import { GET_MOVIES } from '@/app/utils/api'
-import MovieCard from '@/app/components/ui/movie-card'
-import { MOVIES_TYPE } from '@/app/utils/types'
+import { GET_MOVIES } from '@/lib/api'
+import MovieCard from '@/components/ui/movie-card'
+import { MOVIES_TYPE } from '@/lib/types'
 export default async function MoviesGrid(): Promise<JSX.Element> {
   const { results } = await GET_MOVIES()
   return (
