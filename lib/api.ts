@@ -89,21 +89,43 @@ export const GET_COMPANY = async (company_id: string) => {
 }
 
 export const GET_DISCOVERY_MOVIE = async (
-  genre_id: string,
-  year: string,
-  rating: string,
-  language: string,
-  release_date_gte: string,
-  release_date_lte: string,
-  sort_by: string,
-  keyword: string,
-  company: string,
-  country: string,
-  release_date: string,
-  page: string = '1'
+  { genre_id = '',
+    year = '',
+    rating = '',
+    language = '',
+    release_date_gte = '',
+    release_date_lte = '',
+    sort_by = '',
+    keyword = '',
+    company = '',
+    country = '',
+    release_date = '',
+    page = '1' }: {
+      genre_id?: string,
+      year?: string,
+      rating?: string,
+      language?: string,
+      release_date_gte?: string,
+      release_date_lte?: string,
+      sort_by?: string,
+      keyword?: string,
+      company?: string,
+      country?: string,
+      release_date?: string,
+      page?: string
+    }
 ) => {
-  const res = await fetch(`https://api.themoviedb.org/3/discover/movie?
-  with_genres=${genre_id}&
+  //https://api.themoviedb.org/3/discover/movie?language=en-US&page=1&with_genres=28
+  console.log(genre_id)
+  const res = await fetch(`https://api.themoviedb.org/3/discover/movie?with_genres=${genre_id}&page=${page}`
+    , TOKEN)
+  const data = res.json()
+  return data
+}
+
+
+/**
+ *   with_genres=${genre_id}&
   page=${page}&
   release_date.gte=${release_date_gte}&
   release_date.lte=${release_date_lte}&
@@ -114,8 +136,5 @@ export const GET_DISCOVERY_MOVIE = async (
   with_release_type=${release_date}&
   with_watch_providers=${country}&
   primary_release_year=${year}&
-  vote_average.gte=${rating}`
-    , TOKEN)
-  const data = res.json()
-  return data
-}
+  vote_average.gte=${rating}
+ */
