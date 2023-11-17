@@ -88,6 +88,7 @@ export const GET_COMPANY = async (company_id: string) => {
   return data
 }
 
+
 export const GET_DISCOVERY_MOVIE = async (
   { genre_id = '',
     year = '',
