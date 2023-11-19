@@ -6,7 +6,6 @@ import { blurImage } from '@/lib/blurImage'
 
 export default async function SimilarMovies({ id }: { id: string }) {
  const { results } = await GET_MOVIE_SIMILAR(id)
- const { base64 } = await blurImage(`https://image.tmdb.org/t/p/original/${results[0].backdrop_path}`)
  console.log(results)
  return (
   <div className='mt-10'>
@@ -15,10 +14,10 @@ export default async function SimilarMovies({ id }: { id: string }) {
      <div key={movie.id} className='w-1/5 min-w-[20%]'>
       <Link href={`/movie/${movie.id}`} className='h-full'>
        {
-        movie.backdrop_path ? (
+        movie.poster_path ? (
          <Image className='rounded-xl h-ful object-cover' src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} width={1920} height={1080} />
         ) : (
-         <div className='animate-pulse h-96 w-full bg-gray-400 rounded-xl'></div>
+         <ImagePlaceHolder />
         )
        }
       </Link>
@@ -31,9 +30,8 @@ export default async function SimilarMovies({ id }: { id: string }) {
 
 export const ImagePlaceHolder = () => {
  return (
-  <div className='w-1/5 min-w-[20%]'>
-   <div className='animate-pulse h-96 w-full bg-gray-400 rounded-xl'></div>
-   <div className='animate-pulse h-5 w-1/2 bg-gray-400 rounded-xl mt-2'></div>
+  <div className='h-full w-full'>
+   <div className='animate-pulse h-full w-full bg-gray-400 rounded-xl'></div>
   </div>
  )
 }
