@@ -1,5 +1,5 @@
 import { GET_MOVIE, GET_MOVIE_TRAILER } from '@/lib/api'
-import { MOVIES_TYPE, PRODUCTION_COMPANY, PRODUCTION_COUNTRY } from '@/lib/types'
+import { MOVIES_TYPE } from '@/lib/types'
 import Image from 'next/image'
 import Link from 'next/link'
 import SimilarMovies from '@/components/similar-movie'

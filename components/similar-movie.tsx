@@ -15,7 +15,7 @@ export default async function SimilarMovies({ id }: { id: string }) {
       <Link href={`/movie/${movie.id}`} className='h-full'>
        {
         movie.poster_path ? (
-         <Image className='rounded-xl h-ful object-cover' src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} width={1920} height={1080} />
+         <Image className='rounded-xl h-ful object-cover h-full' src={`https://image.tmdb.org/t/p/original/${movie.poster_path}`} alt={movie.title} width={1920} height={1080} />
         ) : (
          <ImagePlaceHolder />
         )
