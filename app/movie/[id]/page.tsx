@@ -3,6 +3,7 @@ import { MOVIES_TYPE, PRODUCTION_COMPANY, PRODUCTION_COUNTRY } from '@/lib/types
 import Image from 'next/image'
 import Link from 'next/link'
 import SimilarMovies from '@/components/similar-movie'
+import placeholder from '@/public/placeholder.svg'
 type GENRE = {
  id: number;
  name: string;
@@ -21,12 +22,10 @@ export default async function Page({ params }: { params: { id: string } }) {
       style={{ filter: 'url(#ambilight)' }}
      />
     ) : (
-     <ImagePlaceHolder />
-
-    )
-    }
+     <Image src={placeholder} alt='placeholder' width={1920} height={1080} className='rounded-xl ' />
+    )}
     {/* <div className='absolute w-full h-full top-0 rounded-xl' style={{ boxShadow: `0px 0px 46px 3px rgb(${color.r}, ${color.g}, ${color.b}, 0.30)` }}></div> */}
-    <div className='absolute bg-gradient-to-r rounded-xl from-neutral-950 to-transparent blur-xl inset-0'></div>
+    <div className='absolute bg-gradient-to-r rounded-xl from-neutral-950 to-transparent   inset-0'></div>
     <div className='absolute bottom-0 left-5 text-white p-4 mb-10'>
      <h1 className='text-5xl font-bold mt-4 md:mt-0'>{data.title}</h1>
      <p className='text-gray-400'>{data.tagline}</p>
@@ -66,17 +65,24 @@ export const PlayIcon = ({ ...props }) => {
 
 export const Ambient = () => {
  return (
-  <svg width="0" height="0"><filter id="ambilight" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB"><feOffset in="SourceGraphic" result="source-copy"></feOffset><feColorMatrix in="source-copy" type="saturate" values="1" result="saturated-copy"></feColorMatrix><feColorMatrix in="saturated-copy" type="matrix" values="1 0 0 0 0
-                     0 1 0 0 0
-                     0 0 1 0 0
-                     33 33 33 101 -100" result="bright-colors"></feColorMatrix><feMorphology in="bright-colors" operator="dilate" radius="0" result="spread"></feMorphology><feGaussianBlur in="spread" stdDeviation="17" result="ambilight-light"></feGaussianBlur><feOffset in="SourceGraphic" result="source"></feOffset><feComposite in="source" in2="ambilight-light" operator="over"></feComposite></filter></svg>
- )
-}
-
-export const ImagePlaceHolder = () => {
- return (
-  <div className=''>
-   <div className='animate-pulse h-full w-full bg-gray-400 rounded-xl'></div>
-  </div>
+  <svg width="0" height="0">
+   <filter id="ambilight" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB">
+    <feOffset in="SourceGraphic" result="source-copy"></feOffset>
+    <feColorMatrix in="source-copy" type="saturate" values="1" result="saturated-copy"></feColorMatrix>
+    <feColorMatrix
+     in="saturated-copy"
+     type="matrix"
+     values="1 0 0 0 0
+            0 1 0 0 0
+            0 0 1 0 0
+            33 33 33 101 -100"
+     result="bright-colors">
+    </feColorMatrix>
+    <feMorphology in="bright-colors" operator="dilate" radius="0" result="spread"></feMorphology>
+    <feGaussianBlur in="spread" stdDeviation="17" result="ambilight-light"></feGaussianBlur>
+    <feOffset in="SourceGraphic" result="source"></feOffset>
+    <feComposite in="source" in2="ambilight-light" operator="over"></feComposite>
+   </filter>
+  </svg>
  )
 }

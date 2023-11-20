@@ -11,8 +11,8 @@ export default function GenreSelector({ genres }: { genres: MOVIE_GENRES_TYPE })
 
  return (
   <div>
-   <motion.header
-    className="w-full h-8 p-2 flex justify-between border rounded text-white border-neutral-800 items-center cursor-pointer"
+   <motion.div
+    className="w-full h-8 p-5 font-bold flex justify-between border rounded text-white border-neutral-800 items-center cursor-pointer"
     initial={false}
     animate={{ backgroundColor: isOpen ? "#27272795" : "#17171705" }}
     onClick={() => setExpanded(isOpen ? false : true)}
@@ -28,7 +28,7 @@ export default function GenreSelector({ genres }: { genres: MOVIE_GENRES_TYPE })
       d="M16.59 8.59L12 13.17L7.41 8.59L6 10L12 16L18 10L16.59 8.59Z"
      />
     </svg>
-   </motion.header>
+   </motion.div>
    <AnimatePresence initial={false}>
     {isOpen && (
      <motion.div
@@ -56,7 +56,7 @@ export const Genres = ({ genres }: { genres: MOVIE_GENRES_TYPE }) => {
   <motion.div variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
    transition={{ duration: 0.5 }}>
    <div
-    className={` text-xs grid grid-cols-2 content-between px-2 py-2 gap-2 rounded-xl col-span-4 text-white row-span-5 transition-all `} >
+    className={` text-xs grid grid-cols-2 content-between mt-4 gap-2 rounded-xl col-span-4 text-white row-span-5 transition-all `} >
     {genres.map((genre: MOVIE_GENRES_TYPE) => (
      <div key={genre.id} className="">
       <Link href={`/category/${genre.id}`}>
