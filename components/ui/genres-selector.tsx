@@ -6,21 +6,20 @@ import Link from "next/link"
 import { usePathname } from "next/navigation";
 
 export default function GenreSelector({ genres }: { genres: MOVIE_GENRES_TYPE }) {
- const [expanded, setExpanded] = useState(false)
+ const [expanded, setExpanded] = useState(true)
  const isOpen = expanded === true
 
  return (
   <div>
    <motion.div
-    className="w-full h-8 p-5 font-bold flex justify-between border rounded text-white border-neutral-800 items-center cursor-pointer"
+    className="w-full h-11 px-4  font-bold flex justify-between border rounded-[6px] text-white border-neutral-800 items-center cursor-pointer"
     initial={false}
     animate={{ backgroundColor: isOpen ? "#27272795" : "#17171705" }}
     onClick={() => setExpanded(isOpen ? false : true)}
    >
     <p>Genres</p>
     <svg
-     className={`w-4 h-4 transition-all transform ${isOpen ? "rotate-0" : "-rotate-90"
-      }`}
+     className={`w-4 h-4 transition-all transform ${isOpen ? "rotate-0" : "-rotate-90"}`}
      viewBox="0 0 24 24"
     >
      <path
@@ -56,11 +55,11 @@ export const Genres = ({ genres }: { genres: MOVIE_GENRES_TYPE }) => {
   <motion.div variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
    transition={{ duration: 0.5 }}>
    <div
-    className={` text-xs grid grid-cols-2 content-between mt-4 gap-2 rounded-xl col-span-4 text-white row-span-5 transition-all `} >
+    className={` text-xs grid grid-cols-2 content-between mt-2 text-center gap-2 rounded-xl col-span-4 bg-neutral-800/50 py-2 text-white row-span-5 transition-all `} >
     {genres.map((genre: MOVIE_GENRES_TYPE) => (
      <div key={genre.id} className="">
       <Link href={`/category/${genre.id}`}>
-       <button className={`px-2 py-1 rounded-md hover:text-sky-400 transition-all ${path === `/category/${genre.id.toString()}` ? 'bg-sky-900 text-sky-300' : ''}`}>{genre.name}</button>
+       <button className={`px-2 py-1 rounded-[4px] hover:text-sky-400 transition-all ${path === `/category/${genre.id.toString()}` ? 'bg-sky-900 text-sky-300' : ''}`}>{genre.name}</button>
       </Link>
      </div>
     ))}

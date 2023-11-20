@@ -12,7 +12,7 @@ import GenreSelector from "@/components/ui/genres-selector"
 export default async function FilterMenu() {
  const { genres }: { genres: MOVIE_GENRES_TYPE } = await GET_GENRES()
  return (
-  <div className="w-80 rounded-md p-2 bg-neutral-900 border-neutral-800 border">
+  <div className="w-80 rounded-xl p-2 bg-neutral-900 border-neutral-800 border">
    <GenreSelector genres={genres} />
   </div>
  )
