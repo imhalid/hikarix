@@ -14,7 +14,8 @@ const nextConfig = {
         hostname: 'images.unsplash.com',
       }
     ]
-  }
+  },
+  transpilePackages: ['three'],
 }
 
 module.exports = nextConfig

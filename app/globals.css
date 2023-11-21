@@ -30,3 +30,7 @@
   }
 }
 
+canvas {
+touch-action: none;
+}
+
