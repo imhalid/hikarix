@@ -15,7 +15,7 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-neutral-950`}
+      <body className={`${inter.className} bg-neutral-950 relative`}
       >
         <div className='' style={{
           backgroundImage: 'url(/noise.png)',
