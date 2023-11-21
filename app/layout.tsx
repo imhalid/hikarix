@@ -15,28 +15,33 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} container mx-auto flex flex-col justify-center bg-neutral-950 items-center relative `}
+      <body className={`${inter.className} bg-neutral-950`}
       >
-        <div className='-mx-20' style={{
+        <div className='' style={{
           backgroundImage: 'url(/noise.png)',
           position: 'absolute',
           zIndex: 1,
           opacity: 0.05,
           backgroundSize: '128px',
-          width: '120%',
-          height: '120%',
+          width: '100%',
+          height: '100%',
           backgroundRepeat: 'repeat',
           pointerEvents: 'none',
         }}></div>
-        <div className='absolute w-[700px] h-48 aspect-video blur-3xl rounded-full bg-violet-500/30 -top-48 pointer-events-none'>
+        <div className='absolute top-0 right-0 z-10 left-0 h-[400px] overflow-hidden pointer-events-none'>
+          <div className='absolute w-[700px] h-48 aspect-video blur-[100px]  rounded-[100%] bg-violet-500/30 -top-36 '></div>
+          <div className='absolute w-[700px] h-48 aspect-video blur-[100px] rounded-[100%] bg-emerald-700/30 -top-36 left-1/3 '></div>
         </div>
         {/* <SideBar /> */}
-        <Header />
-        <div className='flex gap-2'>
-          {children}
-          <FilterMenu />
+        <div className='container mx-auto flex flex-col justify-center  items-center relative'>
+
+          <Header />
+          <div className='flex gap-2'>
+            {children}
+            <FilterMenu />
+          </div>
+          <Footer />
         </div>
-        <Footer />
       </body>
     </html >
   )
