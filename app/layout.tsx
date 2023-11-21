@@ -28,10 +28,11 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           backgroundRepeat: 'repeat',
           pointerEvents: 'none',
         }}></div>
-        <div className='absolute top-0 right-0 z-10 left-0 h-[400px] overflow-hidden pointer-events-none'>
-          <div className='absolute w-[700px] h-48 aspect-video blur-[100px]  rounded-[100%] bg-violet-500/30 -top-36 '></div>
-          <div className='absolute w-[700px] h-48 aspect-video blur-[100px] rounded-[100%] bg-emerald-700/30 -top-36 left-1/3 '></div>
-        </div>
+        {/* <div className='absolute top-0 right-0 z-10 left-0 h-[400px] overflow-hidden pointer-events-none'>
+          <div className='absolute w-[700px] h-48 aspect-video blur-[100px] rounded-[100%] bg-rose-700/30 -top-36 right-1/2 '></div>
+          <div className='absolute w-[700px] h-48 aspect-video blur-[100px] rounded-[100%] bg-rose-700/30 -top-36 left-1/3 '></div>
+          <div className='absolute w-[700px] h-48 aspect-video blur-[100px]  rounded-[100%] bg-rose-500/30 -top-36 right-0 '></div>
+        </div> */}
         {/* <SideBar /> */}
         <div className='container mx-auto flex flex-col justify-center  items-center relative'>
 
