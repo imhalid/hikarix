@@ -34,3 +34,18 @@ canvas {
 touch-action: none;
 }
 
+.horizontal-03 {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: dash 5s linear alternate infinite;
+}
+
+@keyframes dash {
+  from {
+    stroke-dashoffset: 1;
+  }
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
