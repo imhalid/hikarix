@@ -1,25 +1,27 @@
 'use client'
-import { Canvas } from "@react-three/fiber"
-import HeaderText from '@/components/ui/header-text'
+import Canvas from '@/components/ui/canvas'
 import { motion } from 'framer-motion'
-import { PerspectiveLine } from "@/components/ui/perspective-line"
-export default function Header() {
+import HeaderLinks from '@/components/ui/header-links'
+const links = [
+ {
+  name: 'top rated',
+  url: '/category/16'
+ },
+ {
+  name: 'popular',
+  url: '/popular'
+ },
+ {
+  name: 'upcoming',
+  url: '/upcoming'
+ },
+ {
+  name: 'now playing',
+  url: '/now-playing'
+ },
+]
 
- const variants = {
-  hidden: {
-   scale: 0,
-   opacity: 0,
-  },
-  visible: {
-   scale: 10,
-   opacity: 1,
-   transition: {
-    duration: 10000,
-    ease: "easeInOut",
-    delay: 0.5,
-   }
-  }
- }
+export default function Header() {
 
  return (
   <div className="w-full h-96 border overflow-hidden border-neutral-800 relative rounded-2xl my-5 shadow-inner">
@@ -41,23 +43,16 @@ export default function Header() {
      className="w-full h-96 rounded-full left-0 bg-black"></motion.div>
    </div>
 
-   {/* radial-gradient(circle, rgba(63,94,251,0) 50%, rgba(0,0,0,1) 100%); */}
    <div className="w-full h-full absolute z-1 touch-none top-0 left-0 opacity-100" style={{
     background: "radial-gradient(circle, rgba(63,94,251,0) 50%, rgba(0,0,0,1) 100%)",
    }}>
+    <div className="w-[700px] h-52 rounded-[100%] bg-emerald-500 absolute -top-32 left-1/2 -translate-x-1/2 -translate-y-1/2 blur-[100px]"></div>
+
    </div>
 
-   <Canvas
-    shadows
-    className="touch-none"
-    camera={{ position: [0, 0, 1.3] }}
 
-   // In order for two dom nodes to be able to receive events they must share
-   // the same source. By re-connecting the canvas to a parent that contains the
-   // text content as well as the canvas we do just that.
-   >
-    <HeaderText />
-   </Canvas>
+   <HeaderLinks />
+   <Canvas />
   </div>
  )
 }
