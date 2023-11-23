@@ -49,6 +49,21 @@
     stroke-dashoffset: 0;
   }
 } -->
+
+#horizontal-01, #horizontal-02, #horizontal-03, #horizontal-04, #horizontal-05, #horizontal-06, #horizontal-07 {
+  opacity: 1;
+  animation: lightsOpen 5s linear;
+  delay: 2s;
+}
+
+@keyframes lightsOpen {
+  from {
+    opacity: 0;
+  }
+  to {
+    opacity: 1;
+  }
+}
 </style>
 <g id="Group 11">
 <path id="horizontal-09" pathLength="1" d="M0.465953 538.421L313.893 424.437V221.87L0.460449 108.177" stroke="#fff" stroke-width="0.50" stroke-linecap="round" stroke-linejoin="round"/>
