@@ -48,7 +48,7 @@ export default function Header() {
   type: "spring",
   duration: 0.7,
   bounce: 0.2,
-  delay: 1,
+  delay: 2,
  };
 
  return (
