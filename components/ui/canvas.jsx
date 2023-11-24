@@ -1,7 +1,8 @@
 import { Canvas } from "@react-three/fiber"
 import HeaderText from '@/components/ui/header-text'
-
+import Sparkle from '@/components/ui/sparkle'
 export default function Header() {
+
 
  return (
   <Canvas
@@ -13,6 +14,7 @@ export default function Header() {
   // the same source. By re-connecting the canvas to a parent that contains the
   // text content as well as the canvas we do just that.
   >
+   <Sparkle />
    <HeaderText />
   </Canvas>
  )

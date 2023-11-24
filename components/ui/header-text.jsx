@@ -1,4 +1,4 @@
-import { Text3D, Center, PresentationControls, useMatcapTexture } from "@react-three/drei"
+import { Text3D, Center, PresentationControls, useMatcapTexture, Sparkles } from "@react-three/drei"
 import Bebas from '@/public/Bebas.json'
 import { useEffect, useRef } from 'react'
 import { motion } from 'framer-motion-3d'
@@ -50,7 +50,6 @@ export default function Header() {
   bounce: 0.2,
   delay: 2,
  };
-
  return (
   <PresentationControls
    snap
@@ -63,14 +62,13 @@ export default function Header() {
    <MotionConfig
     transition={transition}
    >
-
     <motion.group
      center={[0, 10, 0]}
      initial={{ scale: 0 }}
      animate={{ scale: 1 }}
     >
-     <Center>
 
+     <Center>
       <Text3D
        ref={ref}
        position={[0, 0, 0]}
