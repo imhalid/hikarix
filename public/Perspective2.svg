@@ -52,35 +52,35 @@
 }
 
 #vertical-01 {
-  animation-delay: 1.5s;
-}
-
-#vertical-02, #vertical-03 {
-  animation-delay: 1.75s;
-}
-
-#vertical-04, #vertical-05 {
   animation-delay:  2s;
 }
 
-#vertical-06, #vertical-07 {
-  animation-delay:  2.25s;
+#vertical-02, #vertical-03 {
+  animation-delay: 2.25s;
 }
 
-#vertical-08, #vertical-09 {
+#vertical-04, #vertical-05 {
   animation-delay:  2.5s;
 }
 
-#vertical-10, #vertical-11 {
+#vertical-06, #vertical-07 {
   animation-delay:  2.75s;
 }
 
+#vertical-08, #vertical-09 {
+  animation-delay: 3s;
+}
+
+#vertical-10, #vertical-11 {
+  animation-delay: 3.25s;
+}
+
 #vertical-12, #vertical-13 {
-  animation-delay:  3s;
+  animation-delay: 3.5s;
 }
 
 #vertical-14, #vertical-15 {
-  animation-delay:  3.25s;
+  animation-delay: 3.75s;
 }
 
 @keyframes lightsOpen {

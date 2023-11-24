@@ -14,7 +14,7 @@ export default async function Page({ params }: { params: { id: string } }) {
   const video = await GET_MOVIE_TRAILER(params.id)
 
   return (
-    <div className='flex flex-col'>
+    <div className='flex flex-col w-full'>
       <Ambient />
       <div className='relative rounded-xl'>
         {data.backdrop_path ? (

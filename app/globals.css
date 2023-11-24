@@ -49,3 +49,7 @@ touch-action: none;
   }
 }
 
+.grid-area {
+  @apply grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 w-full;
+}
+

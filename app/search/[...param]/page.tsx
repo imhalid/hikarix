@@ -10,7 +10,7 @@ export default async function Page({
 }) {
  const { results } = await GET_DISCOVERY_MOVIE({ genre_id: searchParams.genre_id })
  return (
-  <div className="grid 2xl:grid-cols-4 xl:grid-cols-4 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-2 bg-[#d6d0d3] text-white">
+  <div className="grid-area bg-[#d6d0d3] text-white">
    {results.map((movie: MOVIES_TYPE) => (
     <MovieCard key={movie.id} data={movie} />
    ))}

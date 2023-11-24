@@ -1,7 +1,6 @@
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
 import './globals.css'
-import SideBar from '@/components/sidebar'
 import FilterMenu from '@/components/filter-menu'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
@@ -33,7 +32,6 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className='absolute w-[700px] h-48 aspect-video blur-[100px] rounded-[100%] bg-rose-700/30 -top-36 left-1/3 '></div>
           <div className='absolute w-[700px] h-48 aspect-video blur-[100px]  rounded-[100%] bg-rose-500/30 -top-36 right-0 '></div>
         </div> */}
-        {/* <SideBar /> */}
         <div className='container mx-auto flex flex-col justify-center  items-center relative'>
 
           <Header />
