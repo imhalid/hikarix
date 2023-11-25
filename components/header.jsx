@@ -2,6 +2,7 @@
 import Canvas from '@/components/ui/canvas'
 import { motion } from 'framer-motion'
 import HeaderLinks from '@/components/ui/header-links'
+import HeaderSearch from '@/components/ui/header-search'
 
 export default function Header() {
 
@@ -31,7 +32,7 @@ export default function Header() {
 
       </div>
 
-
+      <HeaderSearch />
       <HeaderLinks />
       <Canvas />
     </div>
