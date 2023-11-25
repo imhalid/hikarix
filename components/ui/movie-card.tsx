@@ -5,6 +5,7 @@ import { MOVIES_TYPE } from '@/lib/types'
 import WavyText from './wavy-text'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import { useInView } from 'react-intersection-observer'
 
 const MovieCard = ({ data }: { data: MOVIES_TYPE }) => {
   let [hover, setHover] = useState(false)
@@ -50,6 +51,7 @@ const MovieCard = ({ data }: { data: MOVIES_TYPE }) => {
           {/* <WavyText text={overview.slice(0, 60) + '...'} className='text-xs text-white/50' replay={hover} /> */}
         </div>
       </Link>
+
     </div>
   )
 }
