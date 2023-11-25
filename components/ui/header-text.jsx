@@ -1,6 +1,6 @@
-import { Text3D, Center, PresentationControls, useMatcapTexture, Sparkles } from "@react-three/drei"
+import { Text3D, Center, PresentationControls, useMatcapTexture } from "@react-three/drei"
 import Bebas from '@/public/Bebas.json'
-import { useEffect, useRef } from 'react'
+import { useRef } from 'react'
 import { motion } from 'framer-motion-3d'
 import { MotionConfig } from "framer-motion";
 export default function Header() {
@@ -9,40 +9,6 @@ export default function Header() {
 
  // when load font and page is finish loading than show text scale animation
  const ref = useRef()
- useEffect(() => {
-  ref.current.visible = true
-  // const geometry = ref.current.geometry;
-
-  // geometry.computeBoundingBox();
-  // const boundingBox = geometry.boundingBox;
-
-  // const center = new THREE.Vector3();
-  // boundingBox.getCenter(center);
-
-  // geometry.center();
-
-  // ref.current.position.copy(center);
- }, [])
-
-
-
- // useFrame(() => {
- //  if (ref.current.visible === false) {
- //   ref.current.visible = true;
- //   ref.current.scale.set(0, 0, 0);
- //   ref.current.originalScale = 1;
- //  }
-
- //  if (ref.current.scale.x < 1) {
- //   ref.current.scale.x += Math.min(Math.sin(0.01), 1 - ref.current.scale.x);
- //  }
- //  if (ref.current.scale.y < 1) {
- //   ref.current.scale.y += Math.min(Math.sin(0.01), 1 - ref.current.scale.y);
- //  }
- //  if (ref.current.scale.z < 1) {
- //   ref.current.scale.z += Math.min(Math.sin(0.01), 1 - ref.current.scale.z);
- //  }
- // })
 
  const transition = {
   type: "spring",
@@ -67,7 +33,6 @@ export default function Header() {
      initial={{ scale: 0 }}
      animate={{ scale: 1 }}
     >
-
      <Center>
       <Text3D
        ref={ref}
@@ -88,8 +53,6 @@ export default function Header() {
         matcap={matcap}
        />
       </Text3D>
-
-
      </Center>
     </motion.group>
    </MotionConfig>

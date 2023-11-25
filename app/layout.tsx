@@ -4,6 +4,7 @@ import './globals.css'
 import FilterMenu from '@/components/filter-menu'
 import Header from '@/components/header'
 import Footer from '@/components/footer'
+import MobileFilterMenu from '@/components/mobile-filter-menu'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
@@ -32,12 +33,13 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <div className='absolute w-[700px] h-48 aspect-video blur-[100px] rounded-[100%] bg-rose-700/30 -top-36 left-1/3 '></div>
           <div className='absolute w-[700px] h-48 aspect-video blur-[100px]  rounded-[100%] bg-rose-500/30 -top-36 right-0 '></div>
         </div> */}
-        <div className='container mx-auto flex flex-col justify-center  items-center relative'>
+        <div className='container mx-auto  p-3 flex flex-col justify-center  items-center relative'>
 
           <Header />
-          <div className='flex gap-2'>
+          <div className='flex'>
             {children}
-            <FilterMenu />
+            {/* <MobileFilterMenu classes='w-full bottom-0 rounded-xl lg:hidden fixed' /> */}
+            <FilterMenu classes="lg:block hidden" />
           </div>
           <Footer />
         </div>

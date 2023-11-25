@@ -3,16 +3,24 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { MOVIES_TYPE } from '@/lib/types'
 import WavyText from './wavy-text'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 
 const MovieCard = ({ data }: { data: MOVIES_TYPE }) => {
   let [hover, setHover] = useState(false)
 
-
-
+  useEffect(() => {
+    window.innerWidth > 768 ? setHover(false) : setHover(true)
+  }, [])
+  const handleMouseLeave = () => {
+    // Check if the screen width is greater than 768px
+    if (window.innerWidth > 768) {
+      setHover(false);
+    }
+    // If it's less than 768px, do nothing
+  }
   return (
-    <div className="group relative p-1 flex flex-col h-full w-fit rounded-3xl overflow-hidden items-center" onMouseEnter={() => setHover(true)} onMouseLeave={() => setHover(false)}>
+    <div className="group relative flex flex-col h-full w-fit rounded-3xl overflow-hidden items-center" onMouseEnter={() => setHover(true)} onMouseLeave={handleMouseLeave}>
       <Link href={`/movie/${data.id}`} className='relative h-full'>
         <Image
           src={`https://image.tmdb.org/t/p/w500/` + data.poster_path}
@@ -23,12 +31,11 @@ const MovieCard = ({ data }: { data: MOVIES_TYPE }) => {
           height={750}
           alt={data.title}
         />
-        <div className='group-hover:opacity-100 absolute transition-all -bottom-72 rounded-3xl duration-500 group-hover:bottom-0 opacity-0 left-0 m bg-gradient-to-t  from-black from-0% to-transparent to-70% w-full h-full'>
+        <div className='lg:group-hover:opacity-100 absolute transition-all lg:-bottom-72 bottom-0 opacity-100  rounded-3xl duration-500 lg:group-hover:bottom-0 lg:opacity-0 left-0 m bg-gradient-to-t  from-black from-0% to-transparent to-70% w-full h-full'>
         </div>
         <div className='absolute bottom-0 p-4 h-full w-full text-white'>
           <div className='flex justify-between flex-col h-full w-full'>
             <div className='flex justify-between items-center'>
-
               <MovieCardVoteRating hover={hover}>
                 <p className='rounded-full text-xs bg-black/40 border border-gray-700/10 text-neutral-100 w-fit px-2'>{data.vote_average?.toString().slice(0, 3)}</p>
               </MovieCardVoteRating>
