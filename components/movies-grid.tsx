@@ -9,7 +9,7 @@ export default async function MoviesGrid() {
       {results.map((movie: MOVIES_TYPE) => (
         <MovieCard key={movie.id} data={movie} />
       ))}
-      <LoadMoreButton />
+      {/* <LoadMoreButton /> */}
     </div>
   )
 }

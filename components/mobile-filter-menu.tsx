@@ -12,7 +12,7 @@ export default async function MobileFilterMenu({ classes }: { classes: string })
  const { genres }: { genres: MOVIE_GENRES_TYPE } = await GET_GENRES()
  return (
   <div className={`rounded-xl p-2 bg-neutral-900 border-neutral-800 border ${classes}`}>
-   <GenreSelector genres={genres} />
+   <GenreSelector genres={genres} device='mobile' />
   </div>
  )
 }

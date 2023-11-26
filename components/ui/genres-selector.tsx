@@ -4,9 +4,21 @@ import { motion, AnimatePresence } from "framer-motion";
 import { MOVIE_GENRES_TYPE } from "@/lib/types"
 import Link from "next/link"
 import { usePathname } from "next/navigation";
+import { useEffect } from "react";
 
-export default function GenreSelector({ genres }: { genres: MOVIE_GENRES_TYPE }) {
- const [expanded, setExpanded] = useState(true)
+export default function GenreSelector({ genres, device }: { genres: MOVIE_GENRES_TYPE, device: string }) {
+ const path = usePathname()
+ useEffect(() => {
+  if (device === 'mobile') {
+   setExpanded(false)
+  } else if (device === 'computer') {
+   setExpanded(true)
+  }
+  return () => {
+   setExpanded(false)
+  }
+ }, [path])
+ const [expanded, setExpanded] = useState(false)
  const isOpen = expanded === true
 
  return (
