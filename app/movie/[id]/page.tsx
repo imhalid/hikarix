@@ -14,8 +14,8 @@ export default async function Page({ params }: { params: { id: string } }) {
   const video = await GET_MOVIE_TRAILER(params.id)
 
   return (
-    <div className='flex flex-col w-full'>
-      <Ambient />
+    <div className='flex flex-col w-full md:mr-2'>
+      <Ambilight />
       <div className='relative rounded-xl'>
         {data.backdrop_path ? (
           <Image className='rounded-xl' src={`https://image.tmdb.org/t/p/original/${data.backdrop_path}`} alt={data.title} width={1920} height={1080}
@@ -39,14 +39,12 @@ export default async function Page({ params }: { params: { id: string } }) {
               <Link href={`/category/${genre.id}`} key={genre.id} className='mr-1 mt-1 hover:bg-white hover:text-black transition-all duration-500 border border-neutral-800 backdrop-blur rounded px-3 py-1 text-sm'>{genre.name}</Link>
             ))}
           </div>
-
           {video.results?.length > 0 && (
             <div key={video.results[0].id} className='mt-5 shine overflow-hidden relative inline-block group rounded-full overflow- scale-100 active:scale-[.99] translate-y-0 active:translate-y-1 transition-all'>
               <Link href={`https://www.youtube.com/watch?v=${video.results[0].key}`}
                 className='bg-gradient-to-r from-neutral-900 to-neutral-800 text-white rounded-full px-4 py-2 border border-neutral-600 inline-flex'
               >{video.results[0].name}
                 <PlayIcon className='ml-2' />
-
               </Link>
             </div>
           )}
@@ -63,7 +61,13 @@ export const PlayIcon = ({ ...props }) => {
   )
 }
 
-export const Ambient = () => {
+export const Ambilight = () => {
+
+  /**
+  * Source for ambilight effect: 
+  * https://expensive.toys/blog/ambilight-effect
+  */
+
   return (
     <svg width="0" height="0">
       <filter id="ambilight" width="300%" height="300%" x="-0.75" y="-0.75" colorInterpolationFilters="sRGB">
@@ -86,3 +90,4 @@ export const Ambient = () => {
     </svg>
   )
 }
+

@@ -1,7 +1,7 @@
 import { GET_MOVIES } from '@/lib/api'
 import MovieCard from '@/components/ui/movie-card'
 import { MOVIES_TYPE } from '@/lib/types'
-import { LoadMoreButton } from './load-more'
+import LoadMoreButton from './load-more'
 export default async function MoviesGrid() {
   const { results } = await GET_MOVIES()
   return (

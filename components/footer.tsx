@@ -3,11 +3,11 @@ import Image from "next/image";
 import character from "@/public/character.webp";
 export default function Header() {
  return (
-  <footer className="w-full relative md:h-56 h-92 my-10 rounded-2xl overflow-hidden border border-neutral-800 bg-neutral-200" style={{
+  <footer className="w-full relative md:h-56 h-92 my-10 rounded-2xl overflow-hidden border border-neutral-800 bg-[#242424]" style={{
    // background: 'linear-gradient(225deg, oklch(58.54% 0.062 218.86 / 13.53%) 0%, oklch(15.3% 0.062 218.86 / 13.53%) 100%)',
    // boxShadow: '0px 0px 25px 0px oklch(58.54% 0.062 218.86 / 99.53%) inset'
   }}>
-   <div className="md:flex flex flex-col-reverse md:flex-row text-neutral-900 font-bold font-sans h-full">
+   <div className="md:flex flex flex-col-reverse md:flex-row text-[#8E9084] font-bold font-sans h-full">
     <div className="flex flex-col justify-between h-full overflow-hidden">
      <div className="md:h-full md:w-56 w-full h-96  bg-[#479FD1]">
       <Image src={character} alt="character" className="relative md:bottom-16 bottom-24 scale-100 contrast-150 saturate-50" />

@@ -1,14 +1,13 @@
 import { Text3D, Center, PresentationControls, useMatcapTexture } from "@react-three/drei"
 import Bebas from '@/public/Bebas.json'
-import { useRef } from 'react'
 import { motion } from 'framer-motion-3d'
 import { MotionConfig } from "framer-motion";
 export default function Header() {
 
- const [matcap] = useMatcapTexture("C7B9A1_F8F1E4_EEE4D2_E4D8C4")
+ // const [matcap] = useMatcapTexture("636363_AAAAAA_949494_252525")
+ const [matcap] = useMatcapTexture("4E5150_9FA3A3_848C8A_82848C")
+ // const [matcap] = useMatcapTexture("4C4C4C_D2D2D2_8F8F8F_ACACAC") 
 
- // when load font and page is finish loading than show text scale animation
- const ref = useRef()
 
  const transition = {
   type: "spring",
@@ -35,7 +34,6 @@ export default function Header() {
     >
      <Center>
       <Text3D
-       ref={ref}
        position={[0, 0, 0]}
        font={Bebas}
        fontSize={10}
