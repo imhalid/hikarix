@@ -25,15 +25,15 @@ export default async function Page({ params }: { params: { id: string } }) {
           <Image src={placeholder} alt='placeholder' width={1920} height={1080} className='rounded-xl ' />
         )}
         {/* <div className='absolute w-full h-full top-0 rounded-xl' style={{ boxShadow: `0px 0px 46px 3px rgb(${color.r}, ${color.g}, ${color.b}, 0.30)` }}></div> */}
-        <div className='absolute bg-gradient-to-r rounded-xl from-neutral-950 to-transparent   inset-0'></div>
-        <div className='absolute bottom-0 left-5 text-white p-4 mb-10'>
+        <div className='absolute xl:visible invisible bg-gradient-to-r rounded-xl from-neutral-950 to-transparent inset-0'></div>
+        <div className='xl:absolute relative bottom-0 xl:left-5 text-white p-4 mb-10'>
           <h1 className='text-5xl font-bold mt-4 md:mt-0'>{data.title}</h1>
           <p className='text-gray-400'>{data.tagline}</p>
           <div className='flex items-center my-4'>
             <span className='bg-yellow-400 text-gray-900 rounded-full px-2 py-1 text-xs font-semibold mr-2'>{data.vote_average?.toString().slice(0, 3)}</span>
             <span className='text-gray-400'>{data.release_date?.split('-')[0]}</span>
           </div>
-          <p className='w-2/3'>{data.overview}</p>
+          <p className='xl:w-2/3 w-4/5'>{data.overview}</p>
           <div className='flex flex-wrap mt-2'>
             {data.genres?.map((genre: GENRE) => (
               <Link href={`/category/${genre.id}`} key={genre.id} className='mr-1 mt-1 hover:bg-white hover:text-black transition-all duration-500 border border-neutral-800 backdrop-blur rounded px-3 py-1 text-sm'>{genre.name}</Link>

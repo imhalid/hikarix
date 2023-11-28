@@ -36,10 +36,12 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
         <div className='container mx-auto  p-3 flex flex-col justify-center  items-center relative'>
 
           <Header />
-          <div className='flex'>
+          <div className='flex justify-between w-full'>
             {children}
-            <MobileFilterMenu classes='w-full h-fit z-50 bottom-0 left-1/2 -translate-x-1/2  max-w-xl rounded-xl lg:hidden fixed' />
-            <FilterMenu classes="lg:block hidden" />
+            {/* <MobileFilterMenu classes='w-full h-fit z-50 bottom-0 left-1/2 -translate-x-1/2  max-w-xl rounded-xl lg:hidden fixed' /> */}
+            <div className='relative'>
+              <FilterMenu classes="lg:block hidden sticky top-2 right-0" />
+            </div>
           </div>
           <Footer />
         </div>

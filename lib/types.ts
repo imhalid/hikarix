@@ -47,6 +47,7 @@ export type MOVIES_TYPE = {
   video?: boolean;
   vote_average?: number;
   vote_count?: number;
+  index?: number;
 };
 
 export type MOVIE_GENRES_TYPE = {

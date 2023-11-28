@@ -8,6 +8,9 @@ import { useEffect } from "react";
 
 export default function GenreSelector({ genres, device }: { genres: MOVIE_GENRES_TYPE, device: string }) {
  const path = usePathname()
+
+ const [expanded, setExpanded] = useState(false)
+ const isOpen = expanded === true
  useEffect(() => {
   if (device === 'mobile') {
    setExpanded(false)
@@ -18,9 +21,6 @@ export default function GenreSelector({ genres, device }: { genres: MOVIE_GENRES
    setExpanded(false)
   }
  }, [path])
- const [expanded, setExpanded] = useState(false)
- const isOpen = expanded === true
-
  return (
   <div>
    <motion.div

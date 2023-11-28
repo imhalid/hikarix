@@ -1,40 +1,40 @@
-import Clock from "@/components/ui/clock";
-import Image from "next/image";
-import character from "@/public/character.webp";
+import Link from "next/link"
+import Image from "next/image"
+
 export default function Header() {
  return (
-  <footer className="w-full relative md:h-56 h-92 my-10 rounded-2xl overflow-hidden border border-neutral-800 bg-[#242424]" style={{
-   // background: 'linear-gradient(225deg, oklch(58.54% 0.062 218.86 / 13.53%) 0%, oklch(15.3% 0.062 218.86 / 13.53%) 100%)',
-   // boxShadow: '0px 0px 25px 0px oklch(58.54% 0.062 218.86 / 99.53%) inset'
-  }}>
-   <div className="md:flex flex flex-col-reverse md:flex-row text-[#8E9084] font-bold font-sans h-full">
-    <div className="flex flex-col justify-between h-full overflow-hidden">
-     <div className="md:h-full md:w-56 w-full h-96  bg-[#479FD1]">
-      <Image src={character} alt="character" className="relative md:bottom-16 bottom-24 scale-100 contrast-150 saturate-50" />
+  <footer className="w-full relative md:h-56 h-92 my-10 rounded-2xl overflow-hidden border border-neutral-700 bg-neutral-900">
+   <div className="md:flex flex justify-center items-center flex-col-reverse md:flex-row text-white font-bold font-sans h-full">
+    <div className="flex flex-col items-center mt-10  z-50 ">
+     <p className="text-4xl font-light font-serif">
+      Enjoy Watching
+     </p>
+     <p className="font-serif font-light tracking-wider">
+      Explore. Watch. Discuss
+     </p>
+     <div className="gap-2 flex mt-10 font-light text-white/50 z-50 ">
+      <Link href="https://github.com/imhalid/hikarix" className="hover:text-white transition-all" target="_blank">
+       Github
+      </Link>
+      <Link href="https://twitter.com/halidislm" className="hover:text-white transition-all" target="_blank">
+       Twitter
+      </Link>
+      <Link href="mailto:imhalid@icloud.com" className="hover:text-white transition-all" target="_blank">
+       Mail
+      </Link>
      </div>
     </div>
-    <div className="flex flex-col justify-between w-full h-full">
-     <div className="flex justify-between w-full p-5 font-light">
-      <p className="text-4xl">
-       HIKARIX
-      </p>
-      <p className="">
-       2023
-      </p>
-     </div>
-     <div className="md:flex md:justify-between w-full p-5 font-light">
-      <div>
-       Contact
-      </div>
-      <div className="flex justify-between">
-       <input type="text" className="md:w-72 w-64 h-8 rounded-xl p-2 px-2 text-blue-400 bg-blue-950" />
-       <button className="w-24 text-blue-400 h-8 rounded-xl ml-2 bg-blue-950">Send</button>
-      </div>
-     </div>
-    </div>
-    {/* <Clock /> */}
    </div>
 
+   <div className="h-[266px] w-[500px] absolute lg:visible sm:invisible invisible top-0 left-0">
+    <Image src="/giphy-1.gif" layout="" width={500} height={266} alt="gif1" />
+   </div>
+   <div className="lg:h-[266px] lg:w-[500px] h-60 w-full lg:mt-0 mt-10 lg:absolute relative lg:right-0 lg:top-0">
+    <div className="absolute h-full visible lg:hidden top-0 w-full bg-gradient-to-b from-neutral-900 via-transparent to-transparent z-30"></div>
+    <Image src="/giphy-3.gif" layout="" width={500} height={266} alt="gif1" className="object-cover w-full" />
+   </div>
+   <div className="absolute h-[266px] top-0 left-0 lg:visible invisible w-[500px] bg-gradient-to-l from-neutral-900 via-transparent to-transparent z-5"></div>
+   <div className="absolute h-[266px] top-0 right-0 lg:visible invisible w-[500px] bg-gradient-to-r from-neutral-900 via-transparent to-transparent z-5"></div>
   </footer>
  )
 }

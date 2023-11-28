@@ -14,11 +14,11 @@ type OptionsStore = OptionsValues & {
   setInfinity: () => void;
 };
 
-export const useOptionsStore = create(
+export const useOptionsStore = create<OptionsStore>()(
   persist(
     (set, get) => ({
       infinity: false,
-      setInfinity: () => set((state: OptionsStore) => ({ infinity: !state.infinity })),
+      setInfinity: () => set((state) => ({ infinity: !state.infinity })),
     }),
     {
       name: 'infinity-scroll',

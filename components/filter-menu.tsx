@@ -16,8 +16,8 @@ export default async function FilterMenu({ classes }: { classes: string }) {
  const { genres }: { genres: MOVIE_GENRES_TYPE } = await GET_GENRES()
  return (
   <div className={`w-80 rounded-xl p-2 bg-neutral-900 border-neutral-800 border ${classes}`}>
-   <Options />
    <GenreSelector genres={genres} device='computer' />
+   <Options />
   </div>
  )
 }

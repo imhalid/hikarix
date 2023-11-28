@@ -1,4 +1,9 @@
 'use server'
+
+import MovieCard from "@/components/ui/movie-card"
+import { MOVIES_TYPE } from "./types"
+import SimilarCard from "@/components/ui/similar-card"
+
 const TOKEN = {
   method: 'GET',
   headers: {
@@ -11,10 +16,13 @@ const TOKEN = {
   // },
 }
 
-export const GET_MOVIES = async (page: string = '1') => {
+export const GET_MOVIES = async (page: number = 1) => {
   const res = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&include_adult=false`, TOKEN)
-  const data = res.json()
-  return data
+  const { results } = await res.json()
+  console.log(results)
+  return results.map((movie: MOVIES_TYPE, index: number) => (
+    <MovieCard key={movie.id} data={movie} index={index} />
+  ))
 }
 
 export const GET_MOVIE = async (movie_id: string) => {
@@ -32,25 +40,33 @@ export const GET_GENRES = async (language: string = 'en') => {
 
 export const GET_POPULAR = async (page: number = 1) => {
   const res = await fetch(`https://api.themoviedb.org/3/movie/popular?language=en-US&page=${page}&include_adult=false`, TOKEN)
-  const data = res.json()
-  return data
+  const { results } = await res.json()
+  return results.map((movie: MOVIES_TYPE, index: number) => (
+    <MovieCard key={movie.id} data={movie} index={index} />
+  ))
 }
 export const GET_TOP_RATED = async (page: number = 1) => {
   const res = await fetch(`https://api.themoviedb.org/3/movie/top_rated?language=en-US&page=${page}&include_adult=false`, TOKEN)
-  const data = res.json()
-  return data
+  const { results } = await res.json()
+  return results.map((movie: MOVIES_TYPE, index: number) => (
+    <MovieCard key={movie.id} data={movie} index={index} />
+  ))
 }
 
 export const GET_UPCOMING = async (page: number = 1) => {
   const res = await fetch(`https://api.themoviedb.org/3/movie/upcoming?language=en-US&page=${page}&include_adult=false`, TOKEN)
-  const data = res.json()
-  return data
+  const { results } = await res.json()
+  return results.map((movie: MOVIES_TYPE, index: number) => (
+    <MovieCard key={movie.id} data={movie} index={index} />
+  ))
 }
 
 export const GET_NOW_PLAYING = async (page: number = 1) => {
   const res = await fetch(`https://api.themoviedb.org/3/movie/now_playing?language=en-US&page=${page}&include_adult=false`, TOKEN)
-  const data = res.json()
-  return data
+  const { results } = await res.json()
+  return results.map((movie: MOVIES_TYPE, index: number) => (
+    <MovieCard key={movie.id} data={movie} index={index} />
+  ))
 }
 
 export const GET_MOVIE_TRAILER = async (movie_id: string) => {
@@ -61,8 +77,10 @@ export const GET_MOVIE_TRAILER = async (movie_id: string) => {
 
 export const GET_MOVIE_SIMILAR = async (movie_id: string) => {
   const res = await fetch(`https://api.themoviedb.org/3/movie/${movie_id}/similar?language=en-US&include_adult=false`, TOKEN)
-  const data = res.json()
-  return data
+  const { results } = await res.json()
+  return results.map((movie: MOVIES_TYPE, index: number) => (
+    <SimilarCard key={movie.id} data={movie} index={index} />
+  ))
 }
 
 export const GET_MOVIE_RELEASE_DATE = async (movie_id: string) => {
@@ -80,8 +98,10 @@ export const GET_MOVIE_CREDITS = async (movie_id: string) => {
 export const GET_MOVIE_BY_GENRE = async (page: number = 1, genre_id?: number,) => {
   console.log(genre_id, page)
   const res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre_id}`, TOKEN)
-  const data = res.json()
-  return data
+  const { results } = await res.json()
+  return results.map((movie: MOVIES_TYPE, index: number) => (
+    <MovieCard key={movie.id} data={movie} index={index} />
+  ))
 }
 
 export const GET_COMPANY = async (company_id: string) => {
@@ -91,8 +111,10 @@ export const GET_COMPANY = async (company_id: string) => {
 }
 export const GET_MOVIE_QUERY = async (page: number = 1, query?: string) => {
   const res = await fetch(`https://api.themoviedb.org/3/search/movie?query=${query}&page=${page}&include_adult=false`, TOKEN)
-  const data = res.json()
-  return data
+  const { results } = await res.json()
+  return results.map((movie: MOVIES_TYPE, index: number) => (
+    <MovieCard key={movie.id} data={movie} index={index} />
+  ))
 }
 
 

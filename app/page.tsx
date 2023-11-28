@@ -4,9 +4,7 @@ import React, { Suspense } from 'react'
 // const MoviesGrid = React.lazy(() => import('./components/movies-grid'))
 export default function Home() {
   return (
-    <main className='w-full'>
-      <MoviesGrid />
-    </main>
+    <MoviesGrid />
   )
 }
 
