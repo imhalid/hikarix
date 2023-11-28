@@ -69,7 +69,7 @@ const MovieCard = ({ data, index }: MovieCardProps) => {
             color: liked ? 'red' : 'white',
           }} className='bg-black/40 border border-gray-700/10 p-1 rounded-full'>
             <HeartIcon />
-            <HeartIcon className='absolute  top-0 left-0 right-0 bottom-0'
+            {/* <HeartIcon className='absolute  top-0 left-0 right-0 bottom-0'
               style={{
                 top: createMinAndMax(-5, -15),
                 left: createMinAndMax(-5, -15),
@@ -102,7 +102,7 @@ const MovieCard = ({ data, index }: MovieCardProps) => {
                 opacity: liked ? 1 : 0,
                 transition: 'all 0.5s ease-in-out',
               }}
-            />
+            /> */}
           </button>
         </MovieCardVoteRating>
       </div>
