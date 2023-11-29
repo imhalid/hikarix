@@ -71,7 +71,7 @@ export const Genres = ({ genres }: { genres: MOVIE_GENRES_TYPE }) => {
     {genres.map((genre: MOVIE_GENRES_TYPE) => (
      <div key={genre.id} className="">
       <Link href={`/category/${genre.id}`}>
-       <button className={`px-2 py-1 rounded-[4px] hover:text-sky-400 transition-all ${path === `/category/${genre.id.toString()}` ? 'bg-sky-900 text-sky-300' : ''}`}>{genre.name}</button>
+       <p className={`px-2 py-1 rounded-[4px] inline-flex hover:text-sky-400 transition-all ${path === `/category/${genre.id.toString()}` ? 'bg-sky-900 text-sky-300' : ''}`}>{genre.name}</p>
       </Link>
      </div>
     ))}

@@ -21,6 +21,11 @@
   animation: shine 5s linear;
 }
 
+.subscribe:hover {;
+  background: conic-gradient(from -.3turn at bottom left, blue, green, yellow, orange);
+  box-shadow: 0px 0px 65px 11px green;
+}
+
 @keyframes shine {
   0% {
     background-position: -200% 0;
