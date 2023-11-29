@@ -1,7 +1,7 @@
 'use client'
 import { useState } from 'react'
 import { useRouter } from 'next/navigation'
-import Link from 'next/link'
+import { motion, Variants } from 'framer-motion'
 export default function SearchMovie() {
  let [search, setSearch] = useState('')
  const router = useRouter()
@@ -11,8 +11,34 @@ export default function SearchMovie() {
    router.push(`/search/${search}`)
   }
  }
+
+const variants: Variants = {
+  hidden: {
+    opacity: 0,
+    y: 10,
+    transition: {
+      type: 'spring',
+      damping: 12,
+      stiffness: 200,
+    },
+  },
+  visible: {
+    opacity: 1,
+    y: 0,
+    transition: {
+      delay: 1,
+      type: 'spring',
+      damping: 12,
+      stiffness: 200,
+    },
+  }
+}
  return (
-   <div className="w-full absolute z-1 touch-none top-5 gap-2 flex justify-center z-50 left-1/2 -translate-x-1/2 opacity-100">
+   <motion.div
+   variants={variants}
+    initial='hidden'
+    animate='visible'
+   className="w-full absolute z-1 top-5 gap-2 flex justify-center z-50  opacity-100">
      <div
        style={{
          boxShadow: '0px 0px 20px 1px #1A1A1A',
@@ -32,6 +58,6 @@ export default function SearchMovie() {
          </svg>
        </div>
      </div>
-   </div>
+   </motion.div>
  )
 }

@@ -25,6 +25,17 @@
   scrollbar-width: none; /* Firefox için */
 }
 
+input::-webkit-outer-spin-button,
+input::-webkit-inner-spin-button {
+  -webkit-appearance: none;
+  margin: 0;
+}
+
+/* Firefox */
+input[type=number] {
+  -moz-appearance: textfield;
+}
+
 .shine:hover::after {
   opacity: 1; /* Show the effect on hover */
   animation: shine 5s linear;

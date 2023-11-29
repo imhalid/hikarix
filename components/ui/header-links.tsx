@@ -32,7 +32,7 @@ export default function HeaderLinks() {
             animate={{ opacity: 1, y: 0, scale: 1 }}
             transition={{
               duration: 3,
-              delay: 2 + index * 0.2,
+              delay: 1 + index * 0.2,
               ease: [0, 0.71, 0.2, 1.01],
             }}
             className="h-full"

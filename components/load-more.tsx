@@ -62,7 +62,6 @@ export default function LoadMoreButton({
 
   if (API_FUNC) {
    API_FUNC(page).then((res: any) => {
-    console.log(res)
     setResults((prev) => [...prev, ...res])
     page++
    });

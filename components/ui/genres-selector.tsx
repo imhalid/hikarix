@@ -22,7 +22,7 @@ export default function GenreSelector({ genres, device }: { genres: MOVIE_GENRES
   }
  }, [path])
  return (
-  <div>
+  <>
    <motion.div
     className="w-full h-11 px-4  font-bold flex justify-between border rounded-[6px] text-white border-neutral-800 items-center cursor-pointer"
     initial={false}
@@ -57,25 +57,23 @@ export default function GenreSelector({ genres, device }: { genres: MOVIE_GENRES
      </motion.div>
     )}
    </AnimatePresence>
-  </div>
+  </>
  )
 }
 
 export const Genres = ({ genres }: { genres: MOVIE_GENRES_TYPE }) => {
  const path = usePathname()
  return (
-  <motion.div variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }}
-   transition={{ duration: 0.5 }}>
-   <div
-    className={` text-xs grid grid-cols-2 content-between mt-2 text-center gap-2 rounded-xl col-span-4 bg-neutral-800/50 py-2 text-white row-span-5 transition-all `} >
-    {genres.map((genre: MOVIE_GENRES_TYPE) => (
-     <div key={genre.id} className="">
-      <Link href={`/category/${genre.id}`}>
-       <p className={`px-2 py-1 rounded-[4px] inline-flex hover:text-sky-400 transition-all ${path === `/category/${genre.id.toString()}` ? 'bg-sky-900 text-sky-300' : ''}`}>{genre.name}</p>
-      </Link>
+   <motion.div variants={{ collapsed: { scale: 0.8 }, open: { scale: 1 } }} transition={{ duration: 0.5 }}>
+     <div className={` text-xs grid grid-cols-2 content-between mt-2 text-center gap-2 rounded-xl col-span-4 bg-neutral-800/50 py-2 text-white row-span-5 transition-all `}>
+       {genres.map((genre: MOVIE_GENRES_TYPE) => (
+         <div key={genre.id} className="">
+           <Link href={`/category/${genre.id}`}>
+             <p className={`px-2 py-1 rounded-[4px] inline-flex hover:text-sky-400 transition-all ${path === `/category/${genre.id.toString()}` ? 'bg-sky-900 text-sky-300' : ''}`}>{genre.name}</p>
+           </Link>
+         </div>
+       ))}
      </div>
-    ))}
-   </div>
-  </motion.div>
+   </motion.div>
  )
 }

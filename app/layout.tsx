@@ -38,7 +38,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           <Header />
           <div className='flex justify-between w-full'>
             {children}
-            <MobileFilterMenu classes='w-full h-fit z-[100] bottom-0 left-1/2 -translate-x-1/2  max-w-xl rounded-xl lg:hidden fixed' />
+            {/* <MobileFilterMenu classes='w-full h-fit z-[100] bottom-0 left-1/2 -translate-x-1/2  max-w-xl rounded-xl lg:hidden fixed' /> */}
             <div className='relative'>
               <FilterMenu classes="lg:block hidden sticky top-2 right-0" />
             </div>
