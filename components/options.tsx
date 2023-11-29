@@ -7,7 +7,7 @@ export default function Options() {
 
 
   return (
-    <div className={`w-full rounded-md p-2 mt-4`}>
+    <div className={`w-full rounded-md`}>
       <div className='flex flex-col items-start justify-start'>
         <div className='flex flex-row items-start justify-start'>
           <Switch />

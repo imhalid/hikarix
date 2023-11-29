@@ -1,6 +1,5 @@
 'use client'
 import Canvas from '@/components/ui/canvas'
-import { motion } from 'framer-motion'
 import HeaderLinks from '@/components/ui/header-links'
 import HeaderSearch from '@/components/ui/header-search'
 import Link from 'next/link'
@@ -35,24 +34,30 @@ const subscribe = "Subscribe"
 export default function Header() {
 
   return (
-    <div className='w-full'>
+    <div className='w-full mt-3'>
 
       <div className='text-white w-full  flex justify-between items-center'>
-        <Link href='/'>
-          Home
+        <Link href='/' className='flex items-baseline gap-2 hover:text-white text-neutral-400 transition-all font-extralight tracking-widerx'>
+          <svg width="25" height="25" viewBox="0 0 256 256" xmlns="http://www.w3.org/2000/svg"><path fill="currentColor" d="M224 115.55V208a16 16 0 0 1-16 16h-40a16 16 0 0 1-16-16v-40a8 8 0 0 0-8-8h-32a8 8 0 0 0-8 8v40a16 16 0 0 1-16 16H48a16 16 0 0 1-16-16v-92.45a16 16 0 0 1 5.17-11.78l80-75.48l.11-.11a16 16 0 0 1 21.53 0a1.14 1.14 0 0 0 .11.11l80 75.48a16 16 0 0 1 5.08 11.78Z" /></svg>
+          <span className='relative bottom-[3px]'>Hikarix</span>
         </Link>
+        <div className='flex justify-between gap-3 h-full items-center'>
+          <Options />
+          <div className='w-[1px] h-10 bg-gradient-to-t from-transparent via-neutral-300 to-transparent'></div>
+          <Link href='/'>
+            <div className='bg-neutral-900 subscribeButton text-xl whitespace-nowrap overflow- border relative border-neutral-800 px-3 py-2 rounded-xl font-bold'>
+              <p className={bebasNeue.className}>
+                <span className='z-10 relative'>
+                  {subscribe}
+                </span>
+              </p>
+              <div className='absolute w-full rounded-xl subscribe h-full'></div>
+            </div>
+          </Link>
+        </div>
 
-        <Options />
-
-        <Link href='/'>
-          <div className='bg-neutral-900 text-xl whitespace-nowrap border border-neutral-800 px-3 py-2 rounded-xl font-bold subscribe'>
-            <p className={bebasNeue.className}>
-              {subscribe}
-            </p>
-          </div>
-        </Link>
       </div>
-      <div className="w-full lg:h-96 h-52 md:h-72 border overflow-hidden border-neutral-800 relative rounded-2xl my-5 shadow-inner">
+      <div className="w-full lg:h-96 h-52 md:h-72 border overflow-hidden border-neutral-800 relative rounded-2xl mb-5 mt-3 shadow-inner">
         <div className="w-full h-full absolute top-0 left-0 flex items-center justify-center  opacity-30" style={{
           backgroundImage: "url('/Perspective2.svg')",
           backgroundRepeat: 'no-repeat',
