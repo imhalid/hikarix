@@ -43,8 +43,8 @@ export default function Header() {
         </Link>
         <div className='flex justify-between gap-3 h-full items-center'>
           <Options />
-          <div className='w-[1px] h-10 bg-gradient-to-t from-transparent via-neutral-300 to-transparent'></div>
-          <Link href='/'>
+          <div className='w-0.5 h-10 bg-gradient-to-t from-transparent via-neutral-300 to-transparent'></div>
+          <Link href='#'>
             <div className='bg-neutral-900 subscribeButton text-xl whitespace-nowrap overflow- border relative border-neutral-800 px-3 py-2 rounded-xl font-bold'>
               <p className={bebasNeue.className}>
                 <span className='z-10 relative'>

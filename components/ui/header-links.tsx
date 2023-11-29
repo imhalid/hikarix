@@ -47,7 +47,7 @@ export default function HeaderLinks() {
 
             <Link
               href={link.url}
-              className={`text-xs inline-flex items-center justify-center md:text-base shadow-xl rounded-2xl text-neutral-200 relative uppercase px-3 py-1 transition-all duration-300 ease-in-out ${path === link.url ? 'font-medium' : 'font-light'}`}
+              className={`text-xs inline-flex items-center justify-center md:text-base shadow-xl rounded-2xl text-neutral-200 relative uppercase px-1 sm:px-2 md:px-3 py-1 transition-all duration-300 ease-in-out ${path === link.url ? 'font-medium' : 'font-light'}`}
             >
               <div>{link.name}</div>
               {path === link.url && (

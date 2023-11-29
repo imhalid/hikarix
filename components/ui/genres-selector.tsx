@@ -10,7 +10,7 @@ export default function GenreSelector({ genres, device }: { genres: MOVIE_GENRES
  const path = usePathname()
 
  const [expanded, setExpanded] = useState(false)
- const isOpen = expanded === true
+
  useEffect(() => {
   if (device === 'mobile') {
    setExpanded(false)
@@ -26,12 +26,12 @@ export default function GenreSelector({ genres, device }: { genres: MOVIE_GENRES
    <motion.div
     className="w-full h-11 px-4  font-bold flex justify-between border rounded-[6px] text-white border-neutral-800 items-center cursor-pointer"
     initial={false}
-    animate={{ backgroundColor: isOpen ? "#27272795" : "#17171705" }}
-    onClick={() => setExpanded(isOpen ? false : true)}
+    animate={{ backgroundColor: expanded ? "#27272795" : "#17171705" }}
+    onClick={() => setExpanded(!expanded)}
    >
     <p>Genres</p>
     <svg
-     className={`w-4 h-4 transition-all transform ${isOpen ? "rotate-0" : "-rotate-90"}`}
+     className={`w-4 h-4 transition-all transform ${expanded ? "rotate-0" : "-rotate-90"}`}
      viewBox="0 0 24 24"
     >
      <path
@@ -41,7 +41,7 @@ export default function GenreSelector({ genres, device }: { genres: MOVIE_GENRES
     </svg>
    </motion.div>
    <AnimatePresence initial={false}>
-    {isOpen && (
+    {expanded && (
      <motion.div
       initial="collapsed"
       animate="open"

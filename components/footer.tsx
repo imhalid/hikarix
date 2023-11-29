@@ -29,7 +29,7 @@ export default function Header() {
    <div className="h-[266px] w-[500px] absolute lg:visible sm:invisible invisible top-0 left-0">
     <Image src="/giphy-1.gif" layout="" width={500} height={266} alt="gif1" />
    </div>
-   <div className="lg:h-[266px] lg:w-[500px] h-60 w-full lg:mt-0 mt-10 lg:absolute relative lg:right-0 lg:top-0">
+   <div className="lg:h-[266px] lg:w-[500px] h-48  w-full lg:mt-0 mt-10 lg:absolute relative lg:right-0 lg:top-0">
     <div className="absolute h-full visible lg:hidden top-0 w-full bg-gradient-to-b from-neutral-900 via-transparent to-transparent z-30"></div>
     <Image src="/giphy-3.gif" layout="" width={500} height={266} alt="gif1" className="object-cover w-full" />
    </div>

@@ -10,20 +10,26 @@ import { useOptionsStore, OptionsValues } from '@/zustand/useOptionsStore'
 export type MovieCard = JSX.Element
 
 interface LoadMoreButtonProps {
- API_FUNC?: (page: number, genre_id?: number, query?: string) => Promise<any>;
- genre_id?: number;
- query?: string;
- QUERY_FUNC?: (page: number, query: string) => Promise<any>;
+  API_FUNC?: (page: number, genre_id?: number, query?: string) => Promise<any>
+  genre_id?: number
+  query?: string
+  year?: number
+  QUERY_FUNC?: (page: number, query: string) => Promise<any>
+  YEAR_FUNC?: (page: number, year: number) => Promise<any>
 }
 let page = 2
 export default function LoadMoreButton({
  API_FUNC,
  genre_id,
  query,
- QUERY_FUNC
+  year,
+ QUERY_FUNC,
+  YEAR_FUNC
 }: LoadMoreButtonProps) {
+
  const infinity = useStore(useOptionsStore, (state: OptionsValues) => state.infinity)
  const [infinityValue, setInfinityValue] = useState<Boolean>()
+
  useEffect(() => {
   const item = localStorage.getItem('infinity-scroll');
   if (item) {
@@ -37,6 +43,7 @@ export default function LoadMoreButton({
  const [results, setResults] = useState<MovieCard[]>([])
 
  const loadMoreData = () => {
+
   if (QUERY_FUNC && query) {
    QUERY_FUNC(page, query).then((res: any) => {
     setResults((prev) => [...prev, ...res])
@@ -56,6 +63,13 @@ export default function LoadMoreButton({
   if (API_FUNC) {
    API_FUNC(page).then((res: any) => {
     console.log(res)
+    setResults((prev) => [...prev, ...res])
+    page++
+   });
+  }
+
+  if (YEAR_FUNC && year) {
+   YEAR_FUNC(page, year).then((res: any) => {
     setResults((prev) => [...prev, ...res])
     page++
    });

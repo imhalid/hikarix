@@ -16,6 +16,15 @@
   transition: opacity 0.3s; /* Smooth transition for the effect */
 }
 
+.scrollbar-hidden::-webkit-scrollbar {
+  display: none; /* Chrome, Safari ve Opera için */
+}
+
+.scrollbar-hidden {
+  -ms-overflow-style: none;  /* IE ve Edge için */
+  scrollbar-width: none; /* Firefox için */
+}
+
 .shine:hover::after {
   opacity: 1; /* Show the effect on hover */
   animation: shine 5s linear;

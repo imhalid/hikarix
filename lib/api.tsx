@@ -94,7 +94,6 @@ export const GET_MOVIE_CREDITS = async (movie_id: string) => {
   const data = res.json()
   return data
 }
-// https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre_id}
 export const GET_MOVIE_BY_GENRE = async (page: number = 1, genre_id?: number,) => {
   console.log(genre_id, page)
   const res = await fetch(`https://api.themoviedb.org/3/discover/movie?include_adult=false&include_video=false&language=en-US&page=${page}&sort_by=popularity.desc&with_genres=${genre_id}`, TOKEN)
@@ -115,6 +114,12 @@ export const GET_MOVIE_QUERY = async (page: number = 1, query?: string) => {
   return results.map((movie: MOVIES_TYPE, index: number) => (
     <MovieCard key={movie.id} data={movie} index={index} />
   ))
+}
+
+export const GET_MOVIE_BY_YEAR = async (page: number = 1, year?: number) => {
+  const res = await fetch(`https://api.themoviedb.org/3/discover/movie?language=en-US&page=${page}&include_adult=false&primary_release_year=${year}`, TOKEN)
+  const { results } = await res.json()
+  return results.map((movie: MOVIES_TYPE, index: number) => <MovieCard key={movie.id} data={movie} index={index} />)
 }
 
 
