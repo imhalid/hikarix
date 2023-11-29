@@ -15,37 +15,38 @@ export const metadata: Metadata = {
 export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.className} bg-neutral-950 relative`}
-      >
-        <div className='' style={{
-          backgroundImage: 'url(/noise.png)',
-          position: 'absolute',
-          zIndex: 1,
-          opacity: 0.05,
-          backgroundSize: '128px',
-          width: '100%',
-          height: '100%',
-          backgroundRepeat: 'repeat',
-          pointerEvents: 'none',
-        }}></div>
+      <body className={`${inter.className} bg-neutral-950 relative`}>
+        <div
+          className=""
+          style={{
+            backgroundImage: 'url(/noise.png)',
+            position: 'absolute',
+            zIndex: 1,
+            opacity: 0.05,
+            backgroundSize: '128px',
+            width: '100%',
+            height: '100%',
+            backgroundRepeat: 'repeat',
+            pointerEvents: 'none',
+          }}
+        ></div>
         {/* <div className='absolute top-0 right-0 z-10 left-0 h-[400px] overflow-hidden pointer-events-none'>
           <div className='absolute w-[700px] h-48 aspect-video blur-[100px] rounded-[100%] bg-rose-700/30 -top-36 right-1/2 '></div>
           <div className='absolute w-[700px] h-48 aspect-video blur-[100px] rounded-[100%] bg-rose-700/30 -top-36 left-1/3 '></div>
           <div className='absolute w-[700px] h-48 aspect-video blur-[100px]  rounded-[100%] bg-rose-500/30 -top-36 right-0 '></div>
         </div> */}
-        <div className='container mx-auto  p-3 flex flex-col justify-center  items-center relative'>
-
+        <div className="container mx-auto  p-3 flex flex-col justify-center  items-center relative">
           <Header />
-          <div className='flex justify-between w-full'>
+          <div className="flex justify-between w-full">
             {children}
             {/* <MobileFilterMenu classes='w-full h-fit z-[100] bottom-0 left-1/2 -translate-x-1/2  max-w-xl rounded-xl lg:hidden fixed' /> */}
-            <div className='relative'>
+            <div className="relative">
               <FilterMenu classes="lg:block hidden sticky top-2 right-0" />
             </div>
           </div>
           <Footer />
         </div>
       </body>
-    </html >
+    </html>
   )
 }
