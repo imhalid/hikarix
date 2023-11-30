@@ -21,7 +21,7 @@ export default function RootLayout({ children }: { children: React.ReactNode }) 
           style={{
             backgroundImage: 'url(/noise.png)',
             position: 'absolute',
-            zIndex: 1,
+            zIndex: 100,
             opacity: 0.05,
             backgroundSize: '128px',
             width: '100%',
