@@ -12,6 +12,7 @@
     "@react-three/drei": "^9.88.17",
     "@react-three/fiber": "^8.15.11",
     "@types/three": "^0.158.3",
+    "debounce": "^2.0.0",
     "framer-motion": "^10.16.4",
     "framer-motion-3d": "^10.16.5",
     "lucide-react": "^0.292.0",
