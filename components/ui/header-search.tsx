@@ -1,16 +1,28 @@
 'use client'
-import { useState } from 'react'
-import { useRouter } from 'next/navigation'
 import { motion, Variants } from 'framer-motion'
+import { useSearchParams, useRouter } from 'next/navigation'
+import { useDebouncedCallback } from 'use-debounce'
 export default function SearchMovie() {
- let [search, setSearch] = useState('')
- const router = useRouter()
+const searchParams = useSearchParams()
+const { replace } = useRouter()
 
- const enterToGoToSearchPage = (e: React.KeyboardEvent<HTMLInputElement>) => {
-  if (e.key === 'Enter') {
-   router.push(`/search/${search}`)
-  }
- }
+//  const enterToGoToSearchPage = () => {
+//    debounce(() => {
+//     router.push(`/search/${search}`)
+//    }
+//     , 1000)()
+//  }
+
+const handleSearch = useDebouncedCallback((term: string) => {
+  console.log(`Searching... ${term}`)
+
+   if (term) {
+     replace(`/search/${term}`)
+   } else {
+     replace(`/`)
+   }
+}, 500)
+ 
 
 const variants: Variants = {
   hidden: {
@@ -34,11 +46,7 @@ const variants: Variants = {
   }
 }
  return (
-   <motion.div
-   variants={variants}
-    initial='hidden'
-    animate='visible'
-   className="w-full absolute z-1 top-5 gap-2 flex justify-center z-50  opacity-100">
+   <motion.div variants={variants} initial="hidden" animate="visible" className="w-full absolute z-1 top-5 gap-2 flex justify-center z-50  opacity-100">
      <div
        style={{
          boxShadow: '0px 0px 20px 1px #1A1A1A',
@@ -46,8 +54,8 @@ const variants: Variants = {
        className="relative rounded-xl"
      >
        <input
-         onChange={(e) => setSearch(e.target.value)}
-         onKeyDown={enterToGoToSearchPage}
+         defaultValue={searchParams.get('search')?.toString()}
+         onChange={(e) => handleSearch(e.target.value)}
          type="text"
          className="bg-neutral-700/50 rounded-xl h-9 outline outline-[1px] outline-neutral-900 text-neutral-400 text-sm w-80 px-4 pl-9 py-1 focus:outline-none"
          placeholder="Search movie..."
