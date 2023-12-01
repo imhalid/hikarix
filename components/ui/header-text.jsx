@@ -2,11 +2,33 @@ import { Text3D, Center, PresentationControls, useMatcapTexture } from "@react-t
 import Bebas from '@/public/Bebas.json'
 import { motion } from 'framer-motion-3d'
 import { MotionConfig } from "framer-motion";
+import { useMemo } from "react";
 export default function Header() {
 
  // const [matcap] = useMatcapTexture("636363_AAAAAA_949494_252525")
  const [matcap] = useMatcapTexture("4E5150_9FA3A3_848C8A_82848C")
  // const [matcap] = useMatcapTexture("4C4C4C_D2D2D2_8F8F8F_ACACAC") 
+
+ const text = useMemo(() => (
+  <Text3D
+   position={[0, 0, 0]}
+   font={Bebas}
+   fontSize={10}
+   curveSegments={32}
+   bevelEnabled
+   bevelSize={0.04}
+   bevelThickness={0.1}
+   height={0.01}
+   lineHeight={0.5}
+   letterSpacing={0.01}
+  >
+   HIKARIX
+   <meshMatcapMaterial
+    attach="material"
+    matcap={matcap}
+   />
+  </Text3D>
+ ), [matcap]);
 
 
  const transition = {
@@ -33,24 +55,7 @@ export default function Header() {
      animate={{ scale: 1 }}
     >
      <Center>
-      <Text3D
-       position={[0, 0, 0]}
-       font={Bebas}
-       fontSize={10}
-       curveSegments={32}
-       bevelEnabled
-       bevelSize={0.04}
-       bevelThickness={0.1}
-       height={0.01}
-       lineHeight={0.5}
-       letterSpacing={0.01}
-      >
-       HIKARIX
-       <meshMatcapMaterial
-        attach="material"
-        matcap={matcap}
-       />
-      </Text3D>
+      {text}
      </Center>
     </motion.group>
    </MotionConfig>
