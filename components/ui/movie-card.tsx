@@ -5,6 +5,7 @@ import { MOVIES_TYPE } from '@/lib/types'
 import WavyText from './wavy-text'
 import { useState, useEffect } from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
+import movieCard from '@/public/movieCard.svg'
 
 interface MovieCardProps {
   data: MOVIES_TYPE
@@ -50,15 +51,29 @@ const MovieCard = ({ data, index }: MovieCardProps) => {
       exit="hidden"
       className="group relative flex flex-col h-full w-fit rounded-3xl overflow-hidden items-center" onMouseEnter={() => setHover(true)} onMouseLeave={handleMouseLeave}>
       <Link href={`/movie/${data.id}`} className='relative h-full'>
-        <Image
-          src={`https://image.tmdb.org/t/p/w500/` + data.poster_path}
-          className="transition-all overflow-hidden border border-neutral-800 h-full object-cover rounded-3xl"
-          sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
-          priority
-          width={500}
-          height={750}
-          alt={data.title}
-        />
+        {
+          data.poster_path ? (
+            <Image
+              src={`https://image.tmdb.org/t/p/w500/` + data.poster_path}
+              className="transition-all overflow-hidden border border-neutral-800 h-full object-cover rounded-3xl"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
+              width={500}
+              height={750}
+              alt={data.title}
+            />
+          ) : (
+            <Image
+              src={movieCard}
+              className="transition-all overflow-hidden border border-neutral-800 h-full object-cover rounded-3xl"
+              sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+              priority
+              width={500}
+              height={750}
+              alt={data.title}
+            />
+          )
+        }
         <div className='lg:group-hover:opacity-100 absolute transition-all lg:-bottom-72 bottom-0 opacity-100  rounded-3xl duration-500 lg:group-hover:bottom-0 lg:opacity-0 left-0 m bg-gradient-to-t  from-black from-0% to-transparent to-70% w-full h-full'>
         </div>
         <div className='absolute bottom-0 p-4 h-full w-full text-white'>

@@ -27,7 +27,6 @@ const container = {
   }
 };
 
-// create for subscribe text effect, when hover button subscribe text y position will be change and font size will be change too y -1px and font size 1.1rem to 1.2rem and when hover out will be back to normal
 
 const subscribe = "Subscribe"
 

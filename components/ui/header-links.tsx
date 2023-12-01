@@ -26,7 +26,7 @@ export default function HeaderLinks() {
   return (
     <div className="w-full absolute z-1 touch-none bottom-5 gap-2 flex justify-center z-50 left-0 opacity-100">
       {links.map((link, index) => (
-        <div key={index} className="w-fit relative h-full overflow-hidden rounded-2xl inline-flex items-center justify-center">
+        <div key={index} className="w-fit relative h-full overflow-hidden  inline-flex items-center justify-center">
           <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.5 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -47,7 +47,7 @@ export default function HeaderLinks() {
 
             <Link
               href={link.url}
-              className={`text-xs inline-flex items-center justify-center md:text-base shadow-xl rounded-2xl text-neutral-200 relative uppercase px-1 sm:px-2 md:px-3 py-1 transition-all duration-300 ease-in-out ${path === link.url ? 'font-medium' : 'font-light'}`}
+              className={`text-xs inline-flex items-center justify-center md:text-base shadow-xl  text-neutral-200 relative uppercase px-1 sm:px-2 md:px-3 py-1 transition-all duration-300 ease-in-out ${path === link.url ? 'font-medium' : 'font-light'}`}
             >
               <div>{link.name}</div>
               {path === link.url && (
