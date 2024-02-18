@@ -1,5 +1,6 @@
 import { GET_MOVIE_QUERY } from "@/lib/api";
 import LoadMoreButton from "@/components/load-more";
+
 export default async function Page({ params }: { params: { query: string } }) {
   const results = await GET_MOVIE_QUERY(1, params.query);
 
