@@ -3,115 +3,126 @@
 @tailwind utilities;
 
 .shine::after {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  right: 0;
-  bottom: 0;
-  background: linear-gradient(to right, transparent, rgba(255, 255, 255, 0.2), transparent);
-  background-size: 200% 50%;
-  pointer-events: none;
-  opacity: 0; /* Hide initially */
-  transition: opacity 0.3s; /* Smooth transition for the effect */
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: linear-gradient(
+        to right,
+        transparent,
+        rgba(255, 255, 255, 0.2),
+        transparent
+    );
+    background-size: 200% 50%;
+    pointer-events: none;
+    opacity: 0; /* Hide initially */
+    transition: opacity 0.3s; /* Smooth transition for the effect */
 }
 
 .scrollbar-hidden::-webkit-scrollbar {
-  display: none; /* Chrome, Safari ve Opera için */
+    display: none; /* Chrome, Safari ve Opera için */
 }
 
 .scrollbar-hidden {
-  -ms-overflow-style: none;  /* IE ve Edge için */
-  scrollbar-width: none; /* Firefox için */
+    -ms-overflow-style: none; /* IE ve Edge için */
+    scrollbar-width: none; /* Firefox için */
 }
 
 input::-webkit-outer-spin-button,
 input::-webkit-inner-spin-button {
-  -webkit-appearance: none;
-  margin: 0;
+    -webkit-appearance: none;
+    margin: 0;
 }
 
 /* Firefox */
-input[type=number] {
-  -moz-appearance: textfield;
+input[type="number"] {
+    -moz-appearance: textfield;
 }
 
 .shine:hover::after {
-  opacity: 1; /* Show the effect on hover */
-  animation: shine 5s linear;
+    opacity: 1; /* Show the effect on hover */
+    animation: shine 5s linear;
 }
 
 /* Initial state of .subscribe */
 .subscrib {
-  background: conic-gradient(from -.3turn at bottom left, blue, green, yellow, orange);
-  /* box-shadow: 0px 0px 65px 11px green; */
-  top: 50px;
-  left: -70px;
+    background: conic-gradient(
+        from -0.3turn at bottom left,
+        blue,
+        green,
+        yellow,
+        orange
+    );
+    /* box-shadow: 0px 0px 65px 11px green; */
+    top: 50px;
+    left: -70px;
 }
-
 
 .subscribeButton {
-  overflow: hidden;
-  box-shadow: 0px 0px 0px 0px #479FD1;
-  transition: all 0.5s; /* Smooth transition for the effect */
+    overflow: hidden;
+    box-shadow: 0px 0px 0px 0px #479fd1;
+    transition: all 0.5s; /* Smooth transition for the effect */
 }
 /* Hover effect */
- .subscribeButton:before {
-  content: '';
-  position: absolute;
-  top: 0;
-  left: 0;
-  mask-image: url('/maskCircle.svg');
-  mask-position: 350% 0% ;
-  mask-repeat: no-repeat;
-  width: 100%;
-  height: 100%;
-  rounded: 50%;
-  background: conic-gradient(from -.3turn at bottom left, blue, #479FD1, #D4E7ED, orange);
-  transition: all 0.5s; /* Smooth transition for the effect */
+.subscribeButton:before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    mask-image: url("/maskCircle.svg");
+    mask-position: 350% -50%;
+    mask-repeat: no-repeat;
+    width: 100%;
+    height: 100%;
+    background: conic-gradient(
+        from 0.78turn at bottom left,
+        blue,
+        #479fd1,
+        #d4e7ed,
+        orange
+    );
+    transition: all 0.5s; /* Smooth transition for the effect */
 }
 
 .subscribeButton:hover:before {
-  mask-position: 50% 0% ;
-  mask-image: url('/maskCircle.svg');
-  mask-position: center;
+    mask-image: url("/maskCircle.svg");
+    mask-position: center;
+    scale: 1.5;
 }
 .subscribeButton:hover {
-  box-shadow: 0px 0px 25px 5px #479FD150;
-  
+    box-shadow: 0px 0px 25px 5px #479fd150;
 }
 
-
-
 @keyframes shine {
-  0% {
-    background-position: -200% 0;
-  }
-  100% {
-    background-position: 50% 0;
-  }
+    0% {
+        background-position: -200% 0;
+    }
+    100% {
+        background-position: 50% 0;
+    }
 }
 
 canvas {
-touch-action: none;
+    touch-action: none;
 }
 
 .horizontal-03 {
-  stroke-dasharray: 1;
-  stroke-dashoffset: 1;
-  animation: dash 5s linear alternate infinite;
+    stroke-dasharray: 1;
+    stroke-dashoffset: 1;
+    animation: dash 5s linear alternate infinite;
 }
 
 @keyframes dash {
-  from {
-    stroke-dashoffset: 1;
-  }
-  to {
-    stroke-dashoffset: 0;
-  }
+    from {
+        stroke-dashoffset: 1;
+    }
+    to {
+        stroke-dashoffset: 0;
+    }
 }
 
 .grid-area {
-  @apply grid 2xl:grid-cols-4 md:grid-cols-3 grid-cols-2 gap-2 w-full;
+    @apply grid w-full grid-cols-2 gap-2 md:grid-cols-3 2xl:grid-cols-4;
 }
-

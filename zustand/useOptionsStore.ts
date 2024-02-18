@@ -1,5 +1,5 @@
-import { create } from 'zustand'
-import { persist, createJSONStorage } from 'zustand/middleware'
+import { create } from "zustand";
+import { persist, createJSONStorage } from "zustand/middleware";
 
 // type OptionsStore = {
 //   infinity: boolean;
@@ -21,8 +21,8 @@ export const useOptionsStore = create<OptionsStore>()(
       setInfinity: () => set((state) => ({ infinity: !state.infinity })),
     }),
     {
-      name: 'infinity-scroll',
+      name: "infinity-scroll",
       storage: createJSONStorage(() => localStorage),
-    }
-  )
-)
+    },
+  ),
+);

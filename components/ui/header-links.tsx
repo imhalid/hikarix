@@ -1,32 +1,35 @@
-'use client'
-import Link from 'next/link'
-import { motion } from 'framer-motion'
-import { usePathname } from 'next/navigation'
+"use client";
+import Link from "next/link";
+import { motion } from "framer-motion";
+import { usePathname } from "next/navigation";
 
 const links = [
   {
-    name: 'top rated',
-    url: '/top-rated'
+    name: "top rated",
+    url: "/top-rated",
   },
   {
-    name: 'popular',
-    url: '/popular'
+    name: "popular",
+    url: "/popular",
   },
   {
-    name: 'upcoming',
-    url: '/upcoming'
+    name: "upcoming",
+    url: "/upcoming",
   },
   {
-    name: 'now playing',
-    url: '/now-playing'
+    name: "now playing",
+    url: "/now-playing",
   },
-]
+];
 export default function HeaderLinks() {
-  const path = usePathname()
+  const path = usePathname();
   return (
-    <div className="w-full absolute z-1 touch-none bottom-5 gap-2 flex justify-center z-50 left-0 opacity-100">
+    <div className="z-1 absolute bottom-5 left-0 z-50 flex w-full touch-none justify-center gap-2 opacity-100">
       {links.map((link, index) => (
-        <div key={index} className="w-fit relative h-full overflow-hidden  inline-flex items-center justify-center">
+        <div
+          key={index}
+          className="relative inline-flex h-full w-fit  items-center justify-center overflow-hidden"
+        >
           <motion.div
             initial={{ opacity: 0, y: 10, scale: 0.5 }}
             animate={{ opacity: 1, y: 0, scale: 1 }}
@@ -47,20 +50,20 @@ export default function HeaderLinks() {
 
             <Link
               href={link.url}
-              className={`text-xs inline-flex items-center justify-center md:text-base shadow-xl  text-neutral-200 relative uppercase px-1 sm:px-2 md:px-3 py-1 transition-all duration-300 ease-in-out ${path === link.url ? 'font-medium' : 'font-light'}`}
+              className={`relative inline-flex items-center justify-center px-1 py-1  text-xs uppercase text-neutral-200 shadow-xl transition-all duration-300 ease-in-out sm:px-2 md:px-3 md:text-base ${path === link.url ? "font-medium" : "font-light"}`}
             >
               <div>{link.name}</div>
               {path === link.url && (
                 <>
-                  <div className="bg-slate-300 blur-md w-10 h-5 -bottom-4 md:-bottom-2 absolute"></div>
-                  <div className="bg-slate-300 w-5 h-[2px] rounded-full bottom-0 absolute"></div>
+                  <div className="absolute -bottom-4 h-5 w-10 bg-slate-300 blur-md md:-bottom-2"></div>
+                  <div className="absolute bottom-0 h-[2px] w-5 rounded-full bg-slate-300"></div>
                 </>
               )}
-              <div className="bg-slate-300/30 w-5 h-[2px] rounded-full bottom-0 absolute"></div>
+              <div className="absolute bottom-0 h-[2px] w-5 rounded-full bg-slate-300/30"></div>
             </Link>
           </motion.div>
         </div>
       ))}
     </div>
-  )
-} 
+  );
+}
